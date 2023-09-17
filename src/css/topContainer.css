@@ -1,0 +1,152 @@
+
+.top-container{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    position: relative;
+    margin: 10px 0px;
+    
+}
+
+.logo-container{
+    
+    display: flex;
+    justify-content: center;
+    
+}
+
+.logo-container > a{
+    text-align: center;
+    width: 90%;
+    
+    
+}
+
+.main-logo{
+    width: 50%;
+    height: 100%;
+    
+}
+
+.hamburger-icon{
+    width: 25px;
+    height: 25px;
+}
+
+.date{
+    font-size: 13px;
+}
+
+/* Date */
+
+.left-side{
+    position: absolute;
+    left: 0;
+    width: 15%;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+/* Weather Box */
+
+
+
+.weather-box{
+    position: absolute;
+    right: 0;
+    gap: 15px;
+    align-items: center;
+    display: flex;
+    
+    
+}
+
+
+#weather-icon{
+   width: 50px;
+   height: 50px;
+    
+}
+
+.weather-infos > p {
+    margin: 0;
+}
+
+.weather-infos > h4{
+    font-size: 14px;
+    font-weight: 800;
+}
+
+#temperature{
+    font-size: 14px;
+    font-weight: 800;
+}
+#weather{
+    font-size: 14px;
+    font-weight: 600;
+    color:rgb(100, 100, 100)
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 1051px) {
+    
+}
+
+@media screen and (max-width: 1050px){
+
+}
+
+@media screen and (max-width: 700px){
+
+    .top-container{
+        height: 60px;
+        
+    }
+
+    .weather-box > *{
+        display: none;
+    }
+
+    .date{
+        display: none;
+    }
+    
+    .left-side{
+        & h4{
+            display: none;
+        }
+    }
+    
+    
+    
+    .hamburger-icon{
+        width: 25px;
+        height: 25px;
+        margin-left: 10px;
+    }
+    
+    .logo-container{
+        margin: 8px 0px;
+        width: 100%;
+       
+    }
+    
+    .main-logo{
+        width: 70%;
+    }
+}
+
+
+
