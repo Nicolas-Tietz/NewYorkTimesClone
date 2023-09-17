@@ -14,7 +14,7 @@ Link to the project https://nytclonereactvite.netlify.app/
 
 ## About the Project
 
-The project is a clone of the New York Times homepage created to learn more about React.
+The project is a clone of the New York Times homepage created to learn more about React and APIs.
 
 The homepage contains news fetched using their public API's. 
 
@@ -22,7 +22,7 @@ On top of the page, there is also a Weather Box, created using https://www.weath
 
 There are 3 sections of news:
 
-- Main News are fetched from their homepage API and grouped based on their shared topics.
+- Main News are fetched from their homepage API and grouped if they share at least 2 or more topics.
 
 - Secondary News are instead fetched from specific topics, like science and sports.
 
@@ -77,8 +77,21 @@ It should contain this informations:
 
 The Weather Key is contained into the app.jsx for the project correction if needed.
 
+As you can see in the screenshots below, the page layout changes based on the device used.
 
 ## Screenshots
+
+### Desktop view
+
+<img src="https://github.com/Nicolas-Tietz/NewYorkTimesClone/assets/120263952/5d31fe6b-0d10-4fc0-8141-ce8e31e3926c" width='60%'>
+
+### Tablet view
+
+<img src="https://github.com/Nicolas-Tietz/NewYorkTimesClone/assets/120263952/f8df9c42-3404-45ae-a5e7-e471ce159612" width='60%'>
+
+### Mobile view
+
+<img src="https://github.com/Nicolas-Tietz/NewYorkTimesClone/assets/120263952/233792ef-e336-4a64-b0ca-0f4dc24dbd42" width='40%'>
 
 
 
