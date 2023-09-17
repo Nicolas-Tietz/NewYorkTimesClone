@@ -10,7 +10,7 @@
 
 
 
-
+Link to the project https://nytclonereactvite.netlify.app/
 
 ## About the Project
 
