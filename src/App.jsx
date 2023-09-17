@@ -175,12 +175,12 @@ function App() {
         setMainNews((prevElems) => [...prevElems, [...group]]);
       } else if (group.length > 5) {
         for (let i = 0; i <= group.length; i += 5) {
-          //Creo ultima section
+          
           let groupSliced;
           if (group.length - i <= 5) {
             groupSliced = group.slice(i, group.length);
           } else {
-            //Altrimenti creo section da 5
+            
             groupSliced = group.slice(i, i + 5);
           }
 
@@ -191,7 +191,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("Creo Sections/re-render");
+    
     if (fetchedStateArr == true) {
       setMainSectionsArr([]);
       setSecondarySectionsArr([]);
