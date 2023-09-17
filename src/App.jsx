@@ -33,7 +33,7 @@ function App() {
   const API_SCIENCE = `https://api.nytimes.com/svc/topstories/v2/science.json?api-key=${API_KEY}`;
   const API_SPORTS = `https://api.nytimes.com/svc/topstories/v2/sports.json?api-key=${API_KEY}`;
   const API_REALESTATE = `https://api.nytimes.com/svc/topstories/v2/realestate.json?api-key=${API_KEY}`;
-  const API_WEATHER = `http://api.weatherapi.com/v1/current.json?key=${API_WEATHER_KEY}&q=New-York`;
+  const API_WEATHER = `https://api.weatherapi.com/v1/current.json?key=${API_WEATHER_KEY}&q=New-York`;
 
   
 
