@@ -109,15 +109,7 @@ export default function SecondaryNewsTemplates(props) {
                             <p>{props.newsArray[1].abstract}</p>
                         </div>
                         </a>
-                        <div className="img-container">
-                        <img
-                            className="small-img"
-                            src={props.newsArray[1].multimedia == null
-                                ? ""
-                                : props.newsArray[1].multimedia[0].url}
-                            alt=""
-                        />
-                        </div>
+                        
                     </div>
                     <div className="divider-news-x"></div>
     
@@ -128,15 +120,7 @@ export default function SecondaryNewsTemplates(props) {
                             <p>{props.newsArray[2].abstract}</p>
                         </div>
                         </a>
-                        <div className="img-container">
-                        <img
-                            className="small-img"
-                            src={props.newsArray[2].multimedia == null
-                                ? ""
-                                : props.newsArray[2].multimedia[0].url}
-                            alt=""
-                        />
-                        </div>
+                        
                     </div>
     
                     <div className="divider-news-x"></div>
@@ -148,15 +132,7 @@ export default function SecondaryNewsTemplates(props) {
                             <p>{props.newsArray[3].abstract}</p>
                         </div>
                         </a>
-                        <div className="img-container">
-                        <img
-                            className="small-img"
-                            src={props.newsArray[3].multimedia == null
-                                ? ""
-                                : props.newsArray[3].multimedia[0].url}
-                            alt=""
-                        />
-                        </div>
+                        
                     </div>
                     </div>
                 </div>

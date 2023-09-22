@@ -12,8 +12,6 @@ import { useInView } from "react-intersection-observer";
 import FixedNavbar from "./components/FixedNavbar";
 
 function App() {
-
-
   //This is the API key for the weather API : f0cf6ef4bdbc4bb6a7e100624231707 (if needed for the project correction, will be removed after)
 
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -35,8 +33,6 @@ function App() {
   const API_REALESTATE = `https://api.nytimes.com/svc/topstories/v2/realestate.json?api-key=${API_KEY}`;
   const API_WEATHER = `https://api.weatherapi.com/v1/current.json?key=${API_WEATHER_KEY}&q=New-York`;
 
-  
-
   const [fetchedStateArr, setFetchedStateArr] = useState(false);
 
   const [mainNews, setMainNews] = useState([]);
@@ -46,12 +42,9 @@ function App() {
   const [sportsNews, setSportsNews] = useState([]);
   const [wellNews, setWellNews] = useState([]);
 
-  
-
   const [weatherDatas, setWeatherDatas] = useState({});
   const [newsTitles, setNewsTitles] = useState([]);
   const [fixedNavState, setFixedNavState] = useState(false);
-  
 
   const [windowSize, setWindowSize] = useState(null);
 
@@ -89,7 +82,6 @@ function App() {
         newsType={newsType}
         windowSize={windowSize}
         position={position}
-       
       />
     );
   }
@@ -97,15 +89,24 @@ function App() {
   //Takes all the fetched news and returns an array with only the first 'num' news ignoring the duplicated ones
   function selectNews(fetchedNewsArr, num) {
     let newsArray = [];
-
+   
     for (let i = 0; newsArray.length < num; i++) {
+      //If i checked all news received from API and cant still fill the array, 
+      if (i == fetchedNewsArr.length){
+        
+        return ''
+      }
       //If the news is not already in the main news section, push it
       if (!newsTitles.includes(fetchedNewsArr[i])) {
-        if (fetchedNewsArr[i].item_type == "Article")
+        
+
+        if (fetchedNewsArr[i].item_type == "Article") {
           newsArray.push(fetchedNewsArr[i]);
+        }
 
         setNewsTitles((prevArr) => [...prevArr, fetchedNewsArr[i].title]);
       }
+      
     }
 
     return newsArray;
@@ -175,12 +176,10 @@ function App() {
         setMainNews((prevElems) => [...prevElems, [...group]]);
       } else if (group.length > 5) {
         for (let i = 0; i <= group.length; i += 5) {
-          
           let groupSliced;
           if (group.length - i <= 5) {
             groupSliced = group.slice(i, group.length);
           } else {
-            
             groupSliced = group.slice(i, i + 5);
           }
 
@@ -191,7 +190,6 @@ function App() {
   }
 
   useEffect(() => {
-    
     if (fetchedStateArr == true) {
       setMainSectionsArr([]);
       setSecondarySectionsArr([]);
@@ -234,8 +232,10 @@ function App() {
       group = createNewsTemplate("secondary", "science", scienceNews);
       addToSection("secondary", group);
 
-      group = createNewsTemplate("secondary", "sports", sportsNews);
-      addToSection("secondary", group);
+      if (sportsNews.length != 0){
+        group = createNewsTemplate("secondary", "sports", sportsNews);
+        addToSection("secondary", group);
+      }
     }
   }, [fetchedStateArr, windowSize]);
 
@@ -383,8 +383,11 @@ function App() {
 
             const realEstateNews = realestateRes.data.results;
             const selectedRealEstateNews = selectNews(realEstateNews, 5);
-
-            setSideRealEstateNews(selectedRealEstateNews);
+            if (selectedRealEstateNews != ''){
+              setSideRealEstateNews(selectedRealEstateNews);
+            }
+            
+            
 
             /* Well Response */
 
@@ -432,10 +435,15 @@ function App() {
 
             /* Sport Response */
             const sportNews = sportsRes.data.results;
-
+            
             const selectedSportNews = selectNews(sportNews, 6);
+            if (selectedSportNews.length == 6){
+              setSportsNews(selectedSportNews);
+            }else{
+              console.log('Unable to fetch enough valid Sports news')
+            }
 
-            setSportsNews(selectedSportNews);
+            
 
             //Fetched = true after the last fetch
 
@@ -501,7 +509,9 @@ function App() {
         </div>
 
         <div className="secondary-news">{secondarySectionsArr}</div>
-        <p><b>This is a CLONE website, not the real one</b></p>
+        <p>
+          <b>This is a CLONE website, not the real one</b>
+        </p>
         <img className="api-img" src="/assets/nytimesapi.png" />
       </div>
     </>

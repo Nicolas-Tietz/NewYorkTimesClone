@@ -6,10 +6,10 @@ import SideSlidingNewsBox from "./SideSlidingNewsBox"
 import '../css/SideNewsTemplates.css'
 
 export default function SideNewsTemplates(props) {
-
+  
   const [sideOpinionNews, setSideOpinionNews] = useState([]);
   const [sideSlidingNews, setSideSlidingNews] = useState([]);
-
+  console.log('side',props.newsArray)
   useEffect(() => {
     //Opinions sidebar section
     if (props.newsType == "opinion") {
